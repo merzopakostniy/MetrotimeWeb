@@ -125,7 +125,7 @@ button {
   transform: translateX(-50%);
   width: min(100%, 480px);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 4px;
   padding: 8px 8px calc(10px + env(safe-area-inset-bottom));
   background: rgba(15, 18, 20, 0.94);
