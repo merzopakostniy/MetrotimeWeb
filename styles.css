@@ -1131,14 +1131,14 @@ button {
 }
 
 .sr-day {
-  font-size: 1.45rem;
+  font-size: 1.65rem;
   font-weight: 700;
   line-height: 1;
   color: rgba(255,255,255,0.9);
 }
 
 .sr-dow {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: rgba(255,255,255,0.6);
   text-transform: uppercase;
@@ -1175,7 +1175,7 @@ button {
 }
 
 .sr-name {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #fff;
 }
@@ -1190,7 +1190,7 @@ button {
 
 .sr-time {
   margin-top: 3px;
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: rgba(255,255,255,0.85);
 }
 
