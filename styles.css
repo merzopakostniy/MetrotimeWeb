@@ -1140,7 +1140,7 @@ button {
 .sr-dow {
   font-size: 0.6rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.6);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 1px;
