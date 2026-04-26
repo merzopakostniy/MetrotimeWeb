@@ -53,15 +53,15 @@ function shiftFlags(s) {
   return fl;
 }
 
-// ── Рендер карточки ────────────────────────────────────────────────────────
+// ── Рендер строки ──────────────────────────────────────────────────────────
 function shiftCard(s) {
-  const date = new Date(s.date);
-  const today = new Date();
-  const isToday    = date.toDateString() === today.toDateString();
-  const dow        = date.getDay();
-  const isWeekend  = dow === 0 || dow === 6;
-  const special    = isSpecial(s);
-  const flags      = shiftFlags(s);
+  const date      = new Date(s.date);
+  const today     = new Date();
+  const isToday   = date.toDateString() === today.toDateString();
+  const dow       = date.getDay();
+  const isWeekend = dow === 0 || dow === 6;
+  const special   = isSpecial(s);
+  const flags     = shiftFlags(s);
 
   let timeHtml = '';
   if (!special) {
@@ -75,14 +75,11 @@ function shiftCard(s) {
     `<span class="sr-flag" style="color:${f.c};background:${f.b}">${f.t}</span>`
   ).join('');
 
-  const dateClass = [
-    'sr-date',
-    isWeekend ? 'is-weekend' : '',
-    isToday   ? 'is-today'   : '',
-  ].filter(Boolean).join(' ');
+  const dateClass = ['sr-date', isWeekend ? 'is-weekend' : '', isToday ? 'is-today' : '']
+    .filter(Boolean).join(' ');
 
   return `
-  <div class="shift-card${isToday ? ' is-today' : ''}">
+  <div class="shift-row">
     <div class="${dateClass}">
       <span class="sr-day">${date.getDate()}</span>
       <span class="sr-dow">${DAYS[dow]}</span>
@@ -129,7 +126,7 @@ function render(shifts) {
   }).join('');
 
   // Скролл к сегодняшней смене
-  const todayEl = el.querySelector('.shift-card.is-today');
+  const todayEl = el.querySelector('.sr-date.is-today');
   if (todayEl) setTimeout(() => todayEl.scrollIntoView({ behavior: 'smooth', block: 'center' }), 150);
 }
 

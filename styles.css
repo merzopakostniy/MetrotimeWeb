@@ -1069,79 +1069,97 @@ button {
 
 /* ─── SHIFTS ─── */
 
+.screen[data-screen="shifts"] { padding: 0; }
+
 .shifts-loading {
   display: flex;
   justify-content: center;
   padding: 60px 0;
 }
 
-.month-section {
-  margin-bottom: 4px;
-}
+.month-section { margin-bottom: 0; }
 
 .month-pill-wrap {
   display: flex;
   justify-content: center;
-  padding: 20px 0 8px;
+  padding: 18px 0 6px;
 }
 
 .month-pill {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.09);
   border-radius: 20px;
-  padding: 4px 14px;
-  font-size: 0.75rem;
+  padding: 3px 12px;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.45);
-  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
-.shift-card {
+/* ── Flat list row ── */
+.shift-row {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px 16px;
-  margin: 0 12px 6px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 14px;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 16px;
+  position: relative;
 }
 
-.shift-card.is-today {
-  background: rgba(62,207,255,0.08);
-  border-color: rgba(62,207,255,0.25);
+.shift-row::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 78px;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
 }
 
+/* ── Date circle ── */
 .sr-date {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 36px;
-  padding-top: 1px;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid transparent;
 }
 
 .sr-day {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1;
   color: rgba(255,255,255,0.9);
 }
 
 .sr-dow {
-  font-size: 0.65rem;
-  font-weight: 500;
+  font-size: 0.6rem;
+  font-weight: 600;
   color: rgba(255,255,255,0.35);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  margin-top: 1px;
 }
 
+.sr-date.is-weekend {
+  background: rgba(180,30,40,0.22);
+}
 .sr-date.is-weekend .sr-day { color: #ff6070; }
 .sr-date.is-weekend .sr-dow { color: rgba(255,96,112,0.55); }
 
-.sr-date.is-today .sr-day { color: #3ecfff; }
-.sr-date.is-today .sr-dow { color: rgba(62,207,255,0.6); }
+.sr-date.is-today {
+  border-color: #4cd98a;
+  background: rgba(76,217,138,0.08);
+}
+.sr-date.is-today .sr-day { color: #4cd98a; }
+.sr-date.is-today .sr-dow { color: rgba(76,217,138,0.65); }
 
+/* ── Row content ── */
 .sr-content {
   flex: 1;
   min-width: 0;
@@ -1151,26 +1169,26 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .sr-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.88);
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
 }
 
 .sr-flag {
   font-size: 0.65rem;
-  font-weight: 600;
-  padding: 2px 7px;
+  font-weight: 700;
+  padding: 2px 8px;
   border-radius: 6px;
   letter-spacing: 0.01em;
 }
 
 .sr-time {
-  margin-top: 4px;
-  font-size: 0.78rem;
+  margin-top: 3px;
+  font-size: 0.8rem;
   color: rgba(255,255,255,0.38);
 }
 
