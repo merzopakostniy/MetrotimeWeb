@@ -1131,14 +1131,14 @@ button {
 }
 
 .sr-day {
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   font-weight: 700;
   line-height: 1;
   color: rgba(255,255,255,0.9);
 }
 
 .sr-dow {
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   font-weight: 600;
   color: rgba(255,255,255,0.6);
   text-transform: uppercase;
@@ -1175,9 +1175,9 @@ button {
 }
 
 .sr-name {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: rgba(255,255,255,0.92);
+  color: #fff;
 }
 
 .sr-flag {
@@ -1190,8 +1190,8 @@ button {
 
 .sr-time {
   margin-top: 3px;
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.38);
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.85);
 }
 
 /* ─── ANIMATIONS ─── */
