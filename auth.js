@@ -190,12 +190,15 @@ export function initAuth(onReady) {
       const userCode = Math.random().toString(36).slice(2, 10).toLowerCase();
       await setDoc(doc(db, 'users', r.user.uid), { email: r.user.email ?? '', userCode });
     }
-  }).catch(() => {});
+  }).catch(err => {
+    const msg = errMsg(err.code);
+    if (msg) { loading.classList.add('hidden'); content.classList.remove('hidden'); showError(msg); }
+  });
 
   onAuthStateChanged(auth, user => {
-    const isGoogle = user?.providerData?.some(p => p.providerId === 'google.com');
-    const isApple  = user?.providerData?.some(p => p.providerId === 'apple.com');
-    const loggedIn = user && (isGoogle || isApple || user.emailVerified);
+    // OAuth-пользователь (любой провайдер) считается авторизованным без проверки email
+    const isOAuth  = (user?.providerData?.length ?? 0) > 0;
+    const loggedIn = user && (isOAuth || user.emailVerified);
 
     loading.classList.add('hidden');
 
