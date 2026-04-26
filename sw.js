@@ -1,4 +1,4 @@
-const cacheName = "metrotime-web-v12";
+const cacheName = "metrotime-web-v13";
 const baseUrl = self.registration.scope;
 const assets = [
   "", "index.html", "styles.css", "app.js", "manifest.json",
