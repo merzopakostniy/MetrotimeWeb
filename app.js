@@ -1,4 +1,5 @@
 import { initAuth, authSignOut } from './auth.js';
+import { initShifts, stopShifts } from './shifts.js';
 
 // ─── PROFILE DATA ───────────────────────────────────────────────
 const PROFILE_KEY = 'metrotime-profile-v1';
@@ -337,9 +338,13 @@ function navigate(name) {
 document.querySelector('.btn-icon--profile').addEventListener('click', openProfile);
 
 // ─── INIT ─────────────────────────────────────────────────────────
-initAuth(() => updateTopbarAvatar());
+initAuth(user => {
+  updateTopbarAvatar();
+  initShifts(user.uid);
+});
 
 document.getElementById('signOutBtn').addEventListener('click', async () => {
+  stopShifts();
   await authSignOut();
   closeProfile();
 });
