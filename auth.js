@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
   GoogleAuthProvider,
+  OAuthProvider,
   signInWithPopup,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js';
@@ -41,6 +42,7 @@ const confWrap    = document.getElementById('authConfirmWrap');
 const errorEl     = document.getElementById('authError');
 const infoEl      = document.getElementById('authInfo');
 const submitBtn   = document.getElementById('authSubmit');
+const appleBtn    = document.getElementById('authApple');
 const googleBtn   = document.getElementById('authGoogle');
 const togglePass  = document.getElementById('authTogglePass');
 
@@ -82,6 +84,7 @@ const SPINNER = `<span class="auth-spin"></span>`;
 function setBusy(on) {
   busy = on;
   submitBtn.disabled = on;
+  appleBtn.disabled  = on;
   googleBtn.disabled = on;
   if (on) { submitBtn.innerHTML = SPINNER; }
   else    { submitBtn.textContent = loginMode ? 'Войти' : 'Создать аккаунт'; }
@@ -129,6 +132,28 @@ async function handleSubmit() {
   }
   setBusy(false);
 }
+
+// ── Apple Sign-In ──────────────────────────────────────────────────────
+// Требует: Firebase Console → Authentication → Sign-in method → Apple → включить
+appleBtn.addEventListener('click', async () => {
+  if (busy) return;
+  clearMsg();
+  setBusy(true);
+  try {
+    const provider = new OAuthProvider('apple.com');
+    provider.addScope('email');
+    provider.addScope('name');
+    const r = await signInWithPopup(auth, provider);
+    if (r.additionalUserInfo?.isNewUser) {
+      const userCode = Math.random().toString(36).slice(2, 10).toLowerCase();
+      await setDoc(doc(db, 'users', r.user.uid), { email: r.user.email ?? '', userCode });
+    }
+  } catch (err) {
+    const msg = errMsg(err.code);
+    if (msg) showError(msg);
+  }
+  setBusy(false);
+});
 
 // ── Google Sign-In ─────────────────────────────────────────────────────
 // Требует: Firebase Console → Authentication → Sign-in method → Google → включить
