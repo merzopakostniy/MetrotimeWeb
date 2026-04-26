@@ -150,13 +150,26 @@ function fillSheet() {
   heroUserId.textContent = draft.userId;
 
   // Role grid
-  roleGrid.innerHTML = ROLES.map(r => `
+  roleGrid.innerHTML = ROLES.map(r => {
+    const avatarFile = r.hasVariant
+      ? `assets/avatars/avatar_${r.id}_${draft.role === r.id ? draft.avatarVariant : 'm'}.png`
+      : `assets/avatars/avatar_${r.id}.png`;
+    return `
     <button class="role-card ${draft.role === r.id ? 'is-selected' : ''}" data-role="${r.id}" type="button">
-      <div class="role-card-icon" style="background:${r.color}22;">${r.icon}</div>
-      <div class="role-card-name">${r.label}</div>
-      <div class="role-card-sub">${r.sub}</div>
-    </button>
-  `).join('');
+      <div class="role-card-avatar" style="background:${r.color}22;" data-avatar-for="${r.id}">
+        <img src="${avatarFile}" alt="" onerror="this.parentElement.innerHTML='${r.icon}'">
+      </div>
+      <div class="role-card-text">
+        <div class="role-card-name">${r.label}</div>
+        <div class="role-card-sub">${r.sub}</div>
+      </div>
+      <div class="role-card-check">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <polyline points="2,6 5,9 10,3" stroke="#0d1114" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </button>`
+  }).join('');
 
   roleGrid.querySelectorAll('.role-card').forEach(btn => {
     btn.addEventListener('click', () => selectRole(btn.dataset.role));

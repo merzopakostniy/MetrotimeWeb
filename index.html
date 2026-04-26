@@ -191,12 +191,18 @@
           <div class="ps-section-title">Стаж и квалификация</div>
           <div class="ps-card">
             <div class="ps-row">
-              <span class="ps-label">Стаж с</span>
+              <div class="ps-row-left">
+                <div class="ps-row-icon" style="background:#e53e3e22;">📅</div>
+                <span class="ps-label">Стаж с</span>
+              </div>
               <input class="ps-input" type="date" id="expDateInput" />
             </div>
             <div class="ps-divider"></div>
             <div class="ps-row">
-              <span class="ps-label">Класс</span>
+              <div class="ps-row-left">
+                <div class="ps-row-icon" style="background:#f0944a22;">⭐</div>
+                <span class="ps-label">Класс квалификации</span>
+              </div>
               <select class="ps-select" id="qualClassSelect">
                 <option value="Без класса">Без класса</option>
                 <option value="3 класс">3 класс</option>
@@ -212,17 +218,26 @@
           <div class="ps-section-title">Работа и оплата</div>
           <div class="ps-card">
             <div class="ps-row" id="tariffRow">
-              <span class="ps-label">Тарифная ставка</span>
-              <input class="ps-input ps-input--num" type="number" id="tariffInput" placeholder="0" inputmode="decimal" />
+              <div class="ps-row-left">
+                <div class="ps-row-icon" style="background:#4cd98a22;">₽</div>
+                <span class="ps-label">Тарифная ставка</span>
+              </div>
+              <input class="ps-input" type="number" id="tariffInput" placeholder="0" inputmode="decimal" />
             </div>
             <div class="ps-divider" id="tariffDivider"></div>
             <div class="ps-row hidden" id="tcmSalaryRow">
-              <span class="ps-label">Оклад ТЧМ</span>
-              <input class="ps-input ps-input--num" type="number" id="tcmSalaryInput" placeholder="0" inputmode="decimal" />
+              <div class="ps-row-left">
+                <div class="ps-row-icon" style="background:#4cd98a22;">₽</div>
+                <span class="ps-label">Оклад ТЧМ</span>
+              </div>
+              <input class="ps-input" type="number" id="tcmSalaryInput" placeholder="0" inputmode="decimal" />
             </div>
             <div class="ps-divider hidden" id="tcmDivider"></div>
             <div class="ps-row">
-              <span class="ps-label">Премия</span>
+              <div class="ps-row-left">
+                <div class="ps-row-icon" style="background:#3ecfff22;">%</div>
+                <span class="ps-label">Премия</span>
+              </div>
               <div class="stepper">
                 <button class="stepper-btn" id="bonusMinus">−</button>
                 <span class="stepper-val" id="bonusDisplay">0%</span>
@@ -231,12 +246,18 @@
             </div>
             <div class="ps-divider" id="seniorDivider"></div>
             <div class="ps-row" id="seniorRow">
-              <span class="ps-label">Старший машинист</span>
+              <div class="ps-row-left">
+                <div class="ps-row-icon" style="background:#3ecfff22;">🚇</div>
+                <span class="ps-label">Старший машинист</span>
+              </div>
               <button class="ps-toggle" id="seniorToggle" data-on="false" role="switch" aria-checked="false"></button>
             </div>
             <div class="ps-divider" id="unionDivider"></div>
             <div class="ps-row" id="unionRow">
-              <span class="ps-label">Член профсоюза</span>
+              <div class="ps-row-left">
+                <div class="ps-row-icon" style="background:#9b6bff22;">👥</div>
+                <span class="ps-label">Член профсоюза</span>
+              </div>
               <button class="ps-toggle" id="unionToggle" data-on="false" role="switch" aria-checked="false"></button>
             </div>
           </div>
@@ -247,7 +268,10 @@
           <div class="ps-section-title">Расчёты</div>
           <div class="ps-card">
             <div class="ps-row">
-              <span class="ps-label">Алименты</span>
+              <div class="ps-row-left">
+                <div class="ps-row-icon" style="background:#9b6bff22;">👨‍👧</div>
+                <span class="ps-label">Алименты</span>
+              </div>
               <select class="ps-select" id="alimonySelect">
                 <option value="0">Не удерживаются</option>
                 <option value="1">1 ребёнок — 25%</option>
