@@ -1,4 +1,4 @@
-const cacheName = "metrotime-web-v8";
+const cacheName = "metrotime-web-v9";
 const baseUrl = self.registration.scope;
 const assets = ["", "index.html", "styles.css", "app.js", "manifest.json", "assets/metrotime-mark.svg"].map(
   (path) => new URL(path, baseUrl).toString(),

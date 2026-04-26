@@ -144,6 +144,123 @@
       </nav>
     </div>
 
+    <!-- ───────── ПРОФИЛЬ ───────── -->
+    <div class="profile-backdrop hidden" id="profileBackdrop"></div>
+    <div class="profile-sheet hidden" id="profileSheet">
+
+      <div class="profile-sheet-header">
+        <button class="ps-close" id="profileClose" aria-label="Закрыть">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <span class="ps-title">Профиль</span>
+        <button class="ps-save" id="profileSave">Сохранить</button>
+      </div>
+
+      <!-- Герой -->
+      <div class="profile-hero">
+        <div class="profile-avatar" id="profileAvatar"></div>
+        <div class="profile-hero-info">
+          <div class="profile-hero-role" id="heroRoleName">Машинист</div>
+          <div class="profile-hero-exp" id="heroExp">Стаж: —</div>
+          <div class="profile-hero-id">
+            ID: <span id="heroUserId">—</span>
+            <button class="copy-id-btn" id="copyIdBtn" aria-label="Скопировать">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-body">
+
+        <!-- Должность -->
+        <div class="ps-section">
+          <div class="ps-section-title">Должность</div>
+          <div class="role-grid" id="roleGrid"></div>
+          <div class="avatar-variant-row hidden" id="avatarVariantRow">
+            <span class="ps-label">Аватар</span>
+            <div class="variant-tabs">
+              <button class="variant-tab" data-variant="m">Мужской</button>
+              <button class="variant-tab" data-variant="f">Женский</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Стаж и квалификация -->
+        <div class="ps-section">
+          <div class="ps-section-title">Стаж и квалификация</div>
+          <div class="ps-card">
+            <div class="ps-row">
+              <span class="ps-label">Стаж с</span>
+              <input class="ps-input" type="date" id="expDateInput" />
+            </div>
+            <div class="ps-divider"></div>
+            <div class="ps-row">
+              <span class="ps-label">Класс</span>
+              <select class="ps-select" id="qualClassSelect">
+                <option value="Без класса">Без класса</option>
+                <option value="3 класс">3 класс</option>
+                <option value="2 класс">2 класс</option>
+                <option value="1 класс">1 класс</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Работа и оплата -->
+        <div class="ps-section">
+          <div class="ps-section-title">Работа и оплата</div>
+          <div class="ps-card">
+            <div class="ps-row" id="tariffRow">
+              <span class="ps-label">Тарифная ставка</span>
+              <input class="ps-input ps-input--num" type="number" id="tariffInput" placeholder="0" inputmode="decimal" />
+            </div>
+            <div class="ps-divider" id="tariffDivider"></div>
+            <div class="ps-row hidden" id="tcmSalaryRow">
+              <span class="ps-label">Оклад ТЧМ</span>
+              <input class="ps-input ps-input--num" type="number" id="tcmSalaryInput" placeholder="0" inputmode="decimal" />
+            </div>
+            <div class="ps-divider hidden" id="tcmDivider"></div>
+            <div class="ps-row">
+              <span class="ps-label">Премия</span>
+              <div class="stepper">
+                <button class="stepper-btn" id="bonusMinus">−</button>
+                <span class="stepper-val" id="bonusDisplay">0%</span>
+                <button class="stepper-btn" id="bonusPlus">+</button>
+              </div>
+            </div>
+            <div class="ps-divider" id="seniorDivider"></div>
+            <div class="ps-row" id="seniorRow">
+              <span class="ps-label">Старший машинист</span>
+              <button class="ps-toggle" id="seniorToggle" data-on="false" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="ps-divider" id="unionDivider"></div>
+            <div class="ps-row" id="unionRow">
+              <span class="ps-label">Член профсоюза</span>
+              <button class="ps-toggle" id="unionToggle" data-on="false" role="switch" aria-checked="false"></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Расчёты -->
+        <div class="ps-section">
+          <div class="ps-section-title">Расчёты</div>
+          <div class="ps-card">
+            <div class="ps-row">
+              <span class="ps-label">Алименты</span>
+              <select class="ps-select" id="alimonySelect">
+                <option value="0">Не удерживаются</option>
+                <option value="1">1 ребёнок — 25%</option>
+                <option value="2">2 ребёнка — 33%</option>
+                <option value="3">3+ детей — 50%</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /profile-body -->
+    </div><!-- /profile-sheet -->
+
     <script src="app.js" type="module"></script>
   </body>
 </html>
