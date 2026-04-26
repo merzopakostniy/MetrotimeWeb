@@ -148,141 +148,198 @@
     <div class="profile-backdrop hidden" id="profileBackdrop"></div>
     <div class="profile-sheet hidden" id="profileSheet">
 
-      <div class="profile-sheet-header">
-        <button class="ps-close" id="profileClose" aria-label="Закрыть">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-        <span class="ps-title">Профиль</span>
-        <button class="ps-save" id="profileSave">Сохранить</button>
-      </div>
+      <!-- ══ ЭКРАН 1: ГЛАВНЫЙ ══ -->
+      <div class="ps-screen" id="psMain">
 
-      <!-- Герой -->
-      <div class="profile-hero">
-        <div class="profile-avatar" id="profileAvatar"></div>
-        <div class="profile-hero-info">
-          <div class="profile-hero-role" id="heroRoleName">Машинист</div>
-          <div class="profile-hero-exp" id="heroExp">Стаж: —</div>
-          <div class="profile-hero-id">
-            ID: <span id="heroUserId">—</span>
-            <button class="copy-id-btn" id="copyIdBtn" aria-label="Скопировать">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <div class="profile-sheet-header">
+          <button class="ps-close" id="profileClose">Закрыть</button>
+          <span class="ps-title">Настройки</span>
+          <button class="ps-save" id="profileSave">Сохранить</button>
+        </div>
+
+        <!-- Герой -->
+        <div class="profile-hero">
+          <div class="profile-avatar" id="profileAvatar"></div>
+          <div class="profile-hero-info">
+            <div class="profile-hero-role" id="heroRoleName">Машинист</div>
+            <div class="profile-hero-exp" id="heroExp">Стаж: —</div>
+            <div class="profile-hero-id">
+              <span class="id-badge">ID</span>
+              <span id="heroUserId">—</span>
+              <button class="copy-id-btn" id="copyIdBtn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-body">
+
+          <!-- Профиль (раскрытая секция) -->
+          <div class="ps-collapsible is-open" id="col-profile">
+            <button class="ps-col-header" data-col="profile">
+              <div class="ps-col-left">
+                <div class="ps-col-icon">👤</div>
+                <span>Профиль</span>
+              </div>
+              <div class="ps-col-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+              </div>
             </button>
+            <div class="ps-col-body">
+              <div class="ps-card" style="margin-top:8px">
+                <button class="ps-nav-row" id="openRolePicker">
+                  <div class="ps-row-left">
+                    <div class="ps-row-icon" style="background:#f0d04022;">🪪</div>
+                    <span class="ps-label">Должность:</span>
+                  </div>
+                  <div class="ps-nav-row-right">
+                    <span class="ps-nav-val" id="roleNavVal">Машинист</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 6 15 12 9 18"/></svg>
+                  </div>
+                </button>
+                <div class="ps-divider"></div>
+                <div class="ps-row">
+                  <div class="ps-row-left">
+                    <div class="ps-row-icon" style="background:#e53e3e22;">📅</div>
+                    <span class="ps-label">Стаж с</span>
+                  </div>
+                  <input class="ps-input" type="date" id="expDateInput" />
+                </div>
+                <div class="ps-divider"></div>
+                <div class="ps-row">
+                  <div class="ps-row-left">
+                    <div class="ps-row-icon" style="background:#f0944a22;">⭐</div>
+                    <span class="ps-label">Класс</span>
+                  </div>
+                  <select class="ps-select" id="qualClassSelect">
+                    <option value="Без класса">Без класса</option>
+                    <option value="3 класс">3 класс</option>
+                    <option value="2 класс">2 класс</option>
+                    <option value="1 класс">1 класс</option>
+                  </select>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- Работа и оплата -->
+          <div class="ps-collapsible" id="col-work">
+            <button class="ps-col-header" data-col="work">
+              <div class="ps-col-left">
+                <div class="ps-col-icon">💼</div>
+                <span>Работа и оплата</span>
+              </div>
+              <div class="ps-col-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </button>
+            <div class="ps-col-body hidden">
+              <div class="ps-card" style="margin-top:8px">
+                <div class="ps-row" id="tariffRow">
+                  <div class="ps-row-left">
+                    <div class="ps-row-icon" style="background:#4cd98a22;">₽</div>
+                    <span class="ps-label">Тарифная ставка</span>
+                  </div>
+                  <input class="ps-input" type="number" id="tariffInput" placeholder="0" inputmode="decimal" />
+                </div>
+                <div class="ps-divider" id="tariffDivider"></div>
+                <div class="ps-row hidden" id="tcmSalaryRow">
+                  <div class="ps-row-left">
+                    <div class="ps-row-icon" style="background:#4cd98a22;">₽</div>
+                    <span class="ps-label">Оклад ТЧМ</span>
+                  </div>
+                  <input class="ps-input" type="number" id="tcmSalaryInput" placeholder="0" inputmode="decimal" />
+                </div>
+                <div class="ps-divider hidden" id="tcmDivider"></div>
+                <div class="ps-row">
+                  <div class="ps-row-left">
+                    <div class="ps-row-icon" style="background:#3ecfff22;">%</div>
+                    <span class="ps-label">Премия</span>
+                  </div>
+                  <div class="stepper">
+                    <button class="stepper-btn" id="bonusMinus">−</button>
+                    <span class="stepper-val" id="bonusDisplay">0%</span>
+                    <button class="stepper-btn" id="bonusPlus">+</button>
+                  </div>
+                </div>
+                <div class="ps-divider" id="seniorDivider"></div>
+                <div class="ps-row" id="seniorRow">
+                  <div class="ps-row-left">
+                    <div class="ps-row-icon" style="background:#3ecfff22;">🚇</div>
+                    <span class="ps-label">Старший машинист</span>
+                  </div>
+                  <button class="ps-toggle" id="seniorToggle" data-on="false" role="switch"></button>
+                </div>
+                <div class="ps-divider" id="unionDivider"></div>
+                <div class="ps-row" id="unionRow">
+                  <div class="ps-row-left">
+                    <div class="ps-row-icon" style="background:#9b6bff22;">👥</div>
+                    <span class="ps-label">Член профсоюза</span>
+                  </div>
+                  <button class="ps-toggle" id="unionToggle" data-on="false" role="switch"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Расчёты и режим -->
+          <div class="ps-collapsible" id="col-calc">
+            <button class="ps-col-header" data-col="calc">
+              <div class="ps-col-left">
+                <div class="ps-col-icon">⚙️</div>
+                <span>Расчёты и режим</span>
+              </div>
+              <div class="ps-col-chevron">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </button>
+            <div class="ps-col-body hidden">
+              <div class="ps-card" style="margin-top:8px">
+                <div class="ps-row">
+                  <div class="ps-row-left">
+                    <div class="ps-row-icon" style="background:#9b6bff22;">👨‍👧</div>
+                    <span class="ps-label">Алименты</span>
+                  </div>
+                  <select class="ps-select" id="alimonySelect">
+                    <option value="0">Не удерживаются</option>
+                    <option value="1">1 ребёнок — 25%</option>
+                    <option value="2">2 ребёнка — 33%</option>
+                    <option value="3">3+ детей — 50%</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /profile-body -->
+      </div><!-- /psMain -->
+
+      <!-- ══ ЭКРАН 2: ВЫБОР ДОЛЖНОСТИ ══ -->
+      <div class="ps-screen ps-screen--right" id="psRoles">
+
+        <div class="profile-sheet-header">
+          <button class="ps-close" id="rolePickerBack" style="color:#e53e3e;">Отмена</button>
+          <span class="ps-title">Должность</span>
+          <button class="ps-save" id="rolePickerSave">Сохранить</button>
         </div>
-      </div>
 
-      <div class="profile-body">
-
-        <!-- Должность -->
-        <div class="ps-section">
-          <div class="ps-section-title">Должность</div>
+        <div class="profile-body">
+          <p class="ps-hint">Выберите должность:</p>
           <div class="role-grid" id="roleGrid"></div>
-          <div class="avatar-variant-row hidden" id="avatarVariantRow">
-            <span class="ps-label">Аватар</span>
-            <div class="variant-tabs">
-              <button class="variant-tab" data-variant="m">Мужской</button>
-              <button class="variant-tab" data-variant="f">Женский</button>
-            </div>
+
+          <!-- Выбор аватара м/ж (показывается если у роли есть варианты) -->
+          <div class="avatar-variant-picker hidden" id="avatarVariantPicker">
+            <div class="avp-circles" id="avpCircles"></div>
           </div>
         </div>
 
-        <!-- Стаж и квалификация -->
-        <div class="ps-section">
-          <div class="ps-section-title">Стаж и квалификация</div>
-          <div class="ps-card">
-            <div class="ps-row">
-              <div class="ps-row-left">
-                <div class="ps-row-icon" style="background:#e53e3e22;">📅</div>
-                <span class="ps-label">Стаж с</span>
-              </div>
-              <input class="ps-input" type="date" id="expDateInput" />
-            </div>
-            <div class="ps-divider"></div>
-            <div class="ps-row">
-              <div class="ps-row-left">
-                <div class="ps-row-icon" style="background:#f0944a22;">⭐</div>
-                <span class="ps-label">Класс квалификации</span>
-              </div>
-              <select class="ps-select" id="qualClassSelect">
-                <option value="Без класса">Без класса</option>
-                <option value="3 класс">3 класс</option>
-                <option value="2 класс">2 класс</option>
-                <option value="1 класс">1 класс</option>
-              </select>
-            </div>
-          </div>
+        <div class="role-save-wrap">
+          <button class="role-save-btn" id="rolePickerConfirm">Сохранить</button>
         </div>
 
-        <!-- Работа и оплата -->
-        <div class="ps-section">
-          <div class="ps-section-title">Работа и оплата</div>
-          <div class="ps-card">
-            <div class="ps-row" id="tariffRow">
-              <div class="ps-row-left">
-                <div class="ps-row-icon" style="background:#4cd98a22;">₽</div>
-                <span class="ps-label">Тарифная ставка</span>
-              </div>
-              <input class="ps-input" type="number" id="tariffInput" placeholder="0" inputmode="decimal" />
-            </div>
-            <div class="ps-divider" id="tariffDivider"></div>
-            <div class="ps-row hidden" id="tcmSalaryRow">
-              <div class="ps-row-left">
-                <div class="ps-row-icon" style="background:#4cd98a22;">₽</div>
-                <span class="ps-label">Оклад ТЧМ</span>
-              </div>
-              <input class="ps-input" type="number" id="tcmSalaryInput" placeholder="0" inputmode="decimal" />
-            </div>
-            <div class="ps-divider hidden" id="tcmDivider"></div>
-            <div class="ps-row">
-              <div class="ps-row-left">
-                <div class="ps-row-icon" style="background:#3ecfff22;">%</div>
-                <span class="ps-label">Премия</span>
-              </div>
-              <div class="stepper">
-                <button class="stepper-btn" id="bonusMinus">−</button>
-                <span class="stepper-val" id="bonusDisplay">0%</span>
-                <button class="stepper-btn" id="bonusPlus">+</button>
-              </div>
-            </div>
-            <div class="ps-divider" id="seniorDivider"></div>
-            <div class="ps-row" id="seniorRow">
-              <div class="ps-row-left">
-                <div class="ps-row-icon" style="background:#3ecfff22;">🚇</div>
-                <span class="ps-label">Старший машинист</span>
-              </div>
-              <button class="ps-toggle" id="seniorToggle" data-on="false" role="switch" aria-checked="false"></button>
-            </div>
-            <div class="ps-divider" id="unionDivider"></div>
-            <div class="ps-row" id="unionRow">
-              <div class="ps-row-left">
-                <div class="ps-row-icon" style="background:#9b6bff22;">👥</div>
-                <span class="ps-label">Член профсоюза</span>
-              </div>
-              <button class="ps-toggle" id="unionToggle" data-on="false" role="switch" aria-checked="false"></button>
-            </div>
-          </div>
-        </div>
+      </div><!-- /psRoles -->
 
-        <!-- Расчёты -->
-        <div class="ps-section">
-          <div class="ps-section-title">Расчёты</div>
-          <div class="ps-card">
-            <div class="ps-row">
-              <div class="ps-row-left">
-                <div class="ps-row-icon" style="background:#9b6bff22;">👨‍👧</div>
-                <span class="ps-label">Алименты</span>
-              </div>
-              <select class="ps-select" id="alimonySelect">
-                <option value="0">Не удерживаются</option>
-                <option value="1">1 ребёнок — 25%</option>
-                <option value="2">2 ребёнка — 33%</option>
-                <option value="3">3+ детей — 50%</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /profile-body -->
     </div><!-- /profile-sheet -->
 
     <script src="app.js" type="module"></script>
