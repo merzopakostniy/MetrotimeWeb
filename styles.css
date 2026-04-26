@@ -63,32 +63,26 @@ button {
   display: block;
 }
 
-/* ─── PAGE HEADER ─── */
+/* ─── TOPBAR ─── */
 
-.page-header {
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: calc(16px + env(safe-area-inset-top)) 0 16px;
-  position: sticky;
-  top: 0;
-  background: rgba(15, 18, 20, 0.88);
+  padding: calc(12px + env(safe-area-inset-top)) 12px 12px;
+  background: rgba(15, 18, 20, 0.92);
+  border-bottom: 1px solid var(--border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  z-index: 10;
-  margin: 0 -16px;
-  padding-left: 16px;
-  padding-right: 16px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 16px;
 }
 
-.page-header h1 {
+.topbar-title {
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  flex: 1;
-  text-align: center;
 }
 
 .btn-icon {

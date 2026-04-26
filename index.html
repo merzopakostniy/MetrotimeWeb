@@ -13,60 +13,53 @@
   <body>
     <div class="app">
 
+      <!-- ───────── ТОПБАР ───────── -->
+      <header class="topbar">
+        <button class="btn-icon" aria-label="Профиль">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </button>
+        <span class="topbar-title" id="topbarTitle">Смены</span>
+        <button class="btn-icon" aria-label="Добавить">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+      </header>
+
       <!-- ───────── ЭКРАНЫ ───────── -->
       <main class="screens">
 
         <!-- СМЕНЫ (стартовый) -->
         <section class="screen is-active" data-screen="shifts">
-          <div class="page-header">
-            <h1>Смены</h1>
-          </div>
           <p class="placeholder">Список смен</p>
         </section>
 
         <!-- СЕГОДНЯ -->
         <section class="screen" data-screen="today">
-          <div class="page-header">
-            <h1>Сегодня</h1>
-            <button class="btn-icon" aria-label="Настройки">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-              </svg>
-            </button>
-          </div>
           <p class="placeholder">Главный экран</p>
         </section>
 
         <!-- НОРМА -->
         <section class="screen" data-screen="norm">
-          <div class="page-header">
-            <h1>Норма</h1>
-          </div>
           <p class="placeholder">Норма месяца</p>
         </section>
 
         <!-- СТАТИСТИКА -->
         <section class="screen" data-screen="stats">
-          <div class="page-header">
-            <h1>Статистика</h1>
-          </div>
           <p class="placeholder">Графики и статистика</p>
         </section>
 
         <!-- 13 -->
         <section class="screen" data-screen="thirteen">
-          <div class="page-header">
-            <h1>13</h1>
-          </div>
           <p class="placeholder">Раздел 13</p>
         </section>
 
         <!-- СООБЩЕНИЯ -->
         <section class="screen" data-screen="messages">
-          <div class="page-header">
-            <h1>Сообщения</h1>
-          </div>
           <p class="placeholder">Сообщения</p>
         </section>
 
