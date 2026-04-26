@@ -1,8 +1,16 @@
-const cacheName = "metrotime-web-v9";
+const cacheName = "metrotime-web-v10";
 const baseUrl = self.registration.scope;
-const assets = ["", "index.html", "styles.css", "app.js", "manifest.json", "assets/metrotime-mark.svg"].map(
-  (path) => new URL(path, baseUrl).toString(),
-);
+const assets = [
+  "", "index.html", "styles.css", "app.js", "manifest.json",
+  "assets/metrotime-mark.svg",
+  "assets/avatars/avatar_driver_m.png",
+  "assets/avatars/avatar_driver_f.png",
+  "assets/avatars/avatar_tcm.png",
+  "assets/avatars/avatar_dde.png",
+  "assets/avatars/avatar_sec.png",
+  "assets/avatars/avatar_station_m.png",
+  "assets/avatars/avatar_station_f.png",
+].map((path) => new URL(path, baseUrl).toString());
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(assets)));
