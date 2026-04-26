@@ -1,3 +1,5 @@
+import { initAuth, authSignOut } from './auth.js';
+
 // ─── PROFILE DATA ───────────────────────────────────────────────
 const PROFILE_KEY = 'metrotime-profile-v1';
 
@@ -335,7 +337,12 @@ function navigate(name) {
 document.querySelector('.btn-icon--profile').addEventListener('click', openProfile);
 
 // ─── INIT ─────────────────────────────────────────────────────────
-updateTopbarAvatar();
+initAuth(() => updateTopbarAvatar());
+
+document.getElementById('signOutBtn').addEventListener('click', async () => {
+  await authSignOut();
+  closeProfile();
+});
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
