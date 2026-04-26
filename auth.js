@@ -6,6 +6,8 @@ import {
   GoogleAuthProvider,
   OAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js';
 import { doc, setDoc } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js';
@@ -45,6 +47,8 @@ const submitBtn   = document.getElementById('authSubmit');
 const appleBtn    = document.getElementById('authApple');
 const googleBtn   = document.getElementById('authGoogle');
 const togglePass  = document.getElementById('authTogglePass');
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 let loginMode = true;
 let busy      = false;
@@ -133,6 +137,20 @@ async function handleSubmit() {
   setBusy(false);
 }
 
+// ── Хелпер: попап на десктопе, редирект на мобильном ─────────────────
+async function signInWith(provider) {
+  if (isMobile) {
+    await signInWithRedirect(auth, provider);
+    // страница уходит на провайдера — код ниже не выполнится
+  } else {
+    const r = await signInWithPopup(auth, provider);
+    if (r.additionalUserInfo?.isNewUser) {
+      const userCode = Math.random().toString(36).slice(2, 10).toLowerCase();
+      await setDoc(doc(db, 'users', r.user.uid), { email: r.user.email ?? '', userCode });
+    }
+  }
+}
+
 // ── Apple Sign-In ──────────────────────────────────────────────────────
 appleBtn.addEventListener('click', async () => {
   if (busy) return;
@@ -142,11 +160,7 @@ appleBtn.addEventListener('click', async () => {
     const provider = new OAuthProvider('apple.com');
     provider.addScope('email');
     provider.addScope('name');
-    const r = await signInWithPopup(auth, provider);
-    if (r.additionalUserInfo?.isNewUser) {
-      const userCode = Math.random().toString(36).slice(2, 10).toLowerCase();
-      await setDoc(doc(db, 'users', r.user.uid), { email: r.user.email ?? '', userCode });
-    }
+    await signInWith(provider);
   } catch (err) {
     const msg = errMsg(err.code);
     if (msg) showError(msg);
@@ -160,12 +174,7 @@ googleBtn.addEventListener('click', async () => {
   clearMsg();
   setBusy(true);
   try {
-    const provider = new GoogleAuthProvider();
-    const r = await signInWithPopup(auth, provider);
-    if (r.additionalUserInfo?.isNewUser) {
-      const userCode = Math.random().toString(36).slice(2, 10).toLowerCase();
-      await setDoc(doc(db, 'users', r.user.uid), { email: r.user.email ?? '', userCode });
-    }
+    await signInWith(new GoogleAuthProvider());
   } catch (err) {
     const msg = errMsg(err.code);
     if (msg) showError(msg);
@@ -175,6 +184,14 @@ googleBtn.addEventListener('click', async () => {
 
 // ── Auth state ─────────────────────────────────────────────────────────
 export function initAuth(onReady) {
+  // Обработка возврата после signInWithRedirect (мобильный)
+  getRedirectResult(auth).then(async r => {
+    if (r?.user && r.additionalUserInfo?.isNewUser) {
+      const userCode = Math.random().toString(36).slice(2, 10).toLowerCase();
+      await setDoc(doc(db, 'users', r.user.uid), { email: r.user.email ?? '', userCode });
+    }
+  }).catch(() => {});
+
   onAuthStateChanged(auth, user => {
     const isGoogle = user?.providerData?.some(p => p.providerId === 'google.com');
     const isApple  = user?.providerData?.some(p => p.providerId === 'apple.com');
