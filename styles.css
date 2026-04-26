@@ -1154,7 +1154,7 @@ button {
 .sr-date.is-weekend .sr-dow { color: rgba(255,255,255,0.45); }
 
 .sr-date.is-today {
-  border-color: #4cd98a;
+  border-color: #3ecfff;
   background: transparent;
 }
 .sr-date.is-today.is-weekend {
