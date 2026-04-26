@@ -5,7 +5,7 @@ const ROLES = [
   { id: 'driver',  label: 'Машинист',            sub: 'Машинист электропоезда локомотивных бригад эксплуатации.', color: '#3ecfff', hasVariant: true  },
   { id: 'tcm',     label: 'Машинист-инструктор', sub: 'Служба эксплуатации',  color: '#f0944a', hasVariant: false },
   { id: 'dde',     label: 'Машинист ДДЭ',        sub: 'Служба эксплуатации',  color: '#f0d040', hasVariant: false },
-  { id: 'sec',     label: 'Сотрудник СБ',        sub: 'Служба безопасности',  color: '#9b6bff', hasVariant: false },
+  { id: 'sec',     label: 'Сотрудник СБ',        sub: 'Служба безопасности',  color: '#9b6bff', hasVariant: true  },
   { id: 'station', label: 'Дежурный по станции', sub: 'Служба движения / станции', color: '#4cd98a', hasVariant: true  },
 ];
 
@@ -38,7 +38,7 @@ function avatarSrc(role, variant) {
     driver:  v => `assets/avatars/avatar_driver_${v}.png`,
     tcm:     () => 'assets/avatars/avatar_tcm.png',
     dde:     () => 'assets/avatars/avatar_dde.png',
-    sec:     () => 'assets/avatars/avatar_sec.png',
+    sec:     v => `assets/avatars/avatar_sec_${v}.png`,
     station: v => `assets/avatars/avatar_station_${v}.png`,
   };
   return (map[role] ?? map.driver)(variant);

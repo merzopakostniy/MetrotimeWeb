@@ -1,4 +1,4 @@
-const cacheName = "metrotime-web-v13";
+const cacheName = "metrotime-web-v14";
 const baseUrl = self.registration.scope;
 const assets = [
   "", "index.html", "styles.css", "app.js", "manifest.json",
@@ -7,7 +7,8 @@ const assets = [
   "assets/avatars/avatar_driver_f.png",
   "assets/avatars/avatar_tcm.png",
   "assets/avatars/avatar_dde.png",
-  "assets/avatars/avatar_sec.png",
+  "assets/avatars/avatar_sec_m.png",
+  "assets/avatars/avatar_sec_f.png",
   "assets/avatars/avatar_station_m.png",
   "assets/avatars/avatar_station_f.png",
 ].map((path) => new URL(path, baseUrl).toString());
