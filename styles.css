@@ -1150,8 +1150,8 @@ button {
   background: rgba(180,30,40,0.22);
   border-color: rgba(200,50,60,0.3);
 }
-.sr-date.is-weekend .sr-day { color: #ff6070; }
-.sr-date.is-weekend .sr-dow { color: rgba(255,96,112,0.55); }
+.sr-date.is-weekend .sr-day { color: rgba(255,255,255,0.9); }
+.sr-date.is-weekend .sr-dow { color: rgba(255,255,255,0.45); }
 
 .sr-date.is-today {
   border-color: #4cd98a;
