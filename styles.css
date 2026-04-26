@@ -1127,7 +1127,7 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 2px solid transparent;
+  border: 2px solid rgba(255,255,255,0.12);
 }
 
 .sr-day {
@@ -1148,6 +1148,7 @@ button {
 
 .sr-date.is-weekend {
   background: rgba(180,30,40,0.22);
+  border-color: rgba(200,50,60,0.3);
 }
 .sr-date.is-weekend .sr-day { color: #ff6070; }
 .sr-date.is-weekend .sr-dow { color: rgba(255,96,112,0.55); }
@@ -1156,8 +1157,9 @@ button {
   border-color: #4cd98a;
   background: transparent;
 }
-.sr-date.is-today .sr-day { color: #4cd98a; }
-.sr-date.is-today .sr-dow { color: rgba(76,217,138,0.65); }
+.sr-date.is-today.is-weekend {
+  background: rgba(180,30,40,0.22);
+}
 
 /* ── Row content ── */
 .sr-content {
