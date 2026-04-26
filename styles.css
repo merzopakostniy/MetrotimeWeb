@@ -170,7 +170,8 @@ button {
 }
 
 .tab.is-active .tab-icon {
-  background: rgba(76, 217, 138, 0.14);
+  background: rgba(76, 217, 138, 0.18);
+  box-shadow: 0 0 12px rgba(76, 217, 138, 0.25);
 }
 
 /* ─── ANIMATIONS ─── */
