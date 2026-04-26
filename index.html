@@ -161,7 +161,6 @@
               <line x1="3" y1="10" x2="21" y2="10"/>
             </svg>
           </span>
-          <span class="tab-label">Смены</span>
         </button>
 
         <!-- Сегодня -->
@@ -175,7 +174,6 @@
               <circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none"/>
             </svg>
           </span>
-          <span class="tab-label">Сегодня</span>
         </button>
 
         <!-- Норма -->
@@ -186,7 +184,6 @@
               <polyline points="12 6 12 12 16 14"/>
             </svg>
           </span>
-          <span class="tab-label">Норма</span>
         </button>
 
         <!-- Статистика -->
@@ -198,7 +195,6 @@
               <line x1="6" y1="20" x2="6" y2="14"/>
             </svg>
           </span>
-          <span class="tab-label">Статистика</span>
         </button>
 
         <!-- 13 -->
@@ -209,7 +205,6 @@
               <text x="16" y="22" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="700" fill="currentColor">13</text>
             </svg>
           </span>
-          <span class="tab-label">13</span>
         </button>
 
 
@@ -221,7 +216,6 @@
               <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
             </svg>
           </span>
-          <span class="tab-label">Сообщения</span>
         </button>
 
       </nav>
@@ -340,11 +334,7 @@
                     <div class="ps-row-icon" style="background:#3ecfff22;">%</div>
                     <span class="ps-label">Премия</span>
                   </div>
-                  <div class="stepper">
-                    <button class="stepper-btn" id="bonusMinus">−</button>
-                    <span class="stepper-val" id="bonusDisplay">0%</span>
-                    <button class="stepper-btn" id="bonusPlus">+</button>
-                  </div>
+                  <input class="ps-input" type="number" id="bonusInput" placeholder="0" inputmode="numeric" />
                 </div>
                 <div class="ps-divider" id="seniorDivider"></div>
                 <div class="ps-row" id="seniorRow">

@@ -1,4 +1,4 @@
-const cacheName = "metrotime-web-v22";
+const cacheName = "metrotime-web-v26";
 const baseUrl = self.registration.scope;
 const assets = [
   "", "index.html", "styles.css", "app.js", "auth.js", "shifts.js", "firebase-config.js", "manifest.json",
@@ -14,6 +14,7 @@ const assets = [
 ].map((path) => new URL(path, baseUrl).toString());
 
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(assets)));
 });
 
@@ -23,6 +24,7 @@ self.addEventListener("activate", (event) => {
       Promise.all(keys.filter((key) => key !== cacheName).map((key) => caches.delete(key))),
     ),
   );
+  event.waitUntil(clients.claim());
 });
 
 self.addEventListener("fetch", (event) => {

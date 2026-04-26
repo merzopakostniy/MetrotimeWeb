@@ -101,9 +101,7 @@ const tcmDivider       = document.getElementById('tcmDivider');
 const seniorRow        = document.getElementById('seniorRow');
 const seniorDivider    = document.getElementById('seniorDivider');
 const unionRow         = document.getElementById('unionRow');
-const bonusMinus       = document.getElementById('bonusMinus');
-const bonusPlus        = document.getElementById('bonusPlus');
-const bonusDisplay     = document.getElementById('bonusDisplay');
+const bonusInput       = document.getElementById('bonusInput');
 const seniorToggle     = document.getElementById('seniorToggle');
 const unionToggle      = document.getElementById('unionToggle');
 const alimonySelect    = document.getElementById('alimonySelect');
@@ -141,7 +139,7 @@ function fillMain() {
   qualClassSelect.value = draft.qualificationClass;
   tariffInput.value = draft.tariffRate;
   tcmSalaryInput.value = draft.tcmSalary;
-  bonusDisplay.textContent = `${draft.bonusPercentage}%`;
+  bonusInput.value = draft.bonusPercentage;
   setToggle(seniorToggle, draft.isSeniorDriver);
   setToggle(unionToggle, draft.isUnionMember);
   alimonySelect.value = draft.alimonyChildren;
@@ -178,6 +176,7 @@ profileSave.addEventListener('click', () => {
   draft.qualificationClass = qualClassSelect.value;
   draft.alimonyChildren = Number(alimonySelect.value);
   draft.experienceDate  = expDateInput.value;
+  draft.bonusPercentage = Number(bonusInput.value);
   profile = { ...draft };
   saveProfile(profile);
   closeProfile();
@@ -189,8 +188,7 @@ expDateInput.addEventListener('change', () => {
   draft.experienceDate = expDateInput.value;
   heroExp.textContent = formatExp(draft.experienceDate);
 });
-bonusMinus.addEventListener('click', () => { draft.bonusPercentage = Math.max(0, draft.bonusPercentage - 1); bonusDisplay.textContent = `${draft.bonusPercentage}%`; });
-bonusPlus.addEventListener('click',  () => { draft.bonusPercentage = Math.min(100, draft.bonusPercentage + 1); bonusDisplay.textContent = `${draft.bonusPercentage}%`; });
+bonusInput.addEventListener('input', () => { draft.bonusPercentage = Number(bonusInput.value); });
 seniorToggle.addEventListener('click', () => { draft.isSeniorDriver = !draft.isSeniorDriver; setToggle(seniorToggle, draft.isSeniorDriver); });
 unionToggle.addEventListener('click',  () => { draft.isUnionMember  = !draft.isUnionMember;  setToggle(unionToggle,  draft.isUnionMember);  });
 

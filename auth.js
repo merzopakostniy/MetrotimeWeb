@@ -187,6 +187,7 @@ export function initAuth(onReady) {
       setTimeout(() => screen.classList.add('hidden'), 340);
       onReady(user);
     } else {
+      screen.classList.remove('hidden', 'auth-out');
       content.classList.remove('hidden');
     }
   });
