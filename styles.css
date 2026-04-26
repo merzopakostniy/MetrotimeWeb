@@ -8,6 +8,7 @@
   --green: #4cd98a;
   --cyan: #4cc9d9;
   --amber: #f0b840;
+  --tab-active: #3ecfff;
 
   color-scheme: dark;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
@@ -166,12 +167,15 @@ button {
 }
 
 .tab.is-active {
-  color: var(--green);
+  color: var(--tab-active);
 }
 
 .tab.is-active .tab-icon {
-  background: rgba(76, 217, 138, 0.18);
-  box-shadow: 0 0 12px rgba(76, 217, 138, 0.25);
+  background: rgba(62, 207, 255, 0.12);
+}
+
+.tab.is-active svg {
+  filter: drop-shadow(0 0 6px rgba(62, 207, 255, 0.7)) drop-shadow(0 0 14px rgba(62, 207, 255, 0.35));
 }
 
 /* ─── ANIMATIONS ─── */
