@@ -1,5 +1,8 @@
 const cacheName = "metrotime-web-v1";
-const assets = ["/", "/index.html", "/styles.css", "/app.js", "/manifest.json", "/assets/metrotime-mark.svg"];
+const baseUrl = self.registration.scope;
+const assets = ["", "index.html", "styles.css", "app.js", "manifest.json", "assets/metrotime-mark.svg"].map(
+  (path) => new URL(path, baseUrl).toString(),
+);
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(assets)));

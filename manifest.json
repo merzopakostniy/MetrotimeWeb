@@ -2,14 +2,14 @@
   "name": "МетроТайм Web",
   "short_name": "МетроТайм",
   "description": "Мобильный учет смен, нормы, заработка и Premium-подписки.",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#101417",
   "theme_color": "#101417",
   "lang": "ru",
   "icons": [
     {
-      "src": "/assets/metrotime-mark.svg",
+      "src": "assets/metrotime-mark.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
