@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101417" />
+    <meta
+      name="description"
+      content="МетроТайм Web - мобильный учет смен, нормы, заработка и Premium-подписки."
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/assets/metrotime-mark.svg" />
+    <link rel="apple-touch-icon" href="/assets/metrotime-mark.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>МетроТайм Web</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <img src="/assets/metrotime-mark.svg" alt="" class="brand-mark" />
+          <div>
+            <p class="eyebrow">МетроТайм Web</p>
+            <h1 id="screenTitle">Сегодня</h1>
+          </div>
+        </div>
+        <button class="icon-button" type="button" aria-label="Настройки">
+          <span aria-hidden="true">⚙</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="screen is-active" data-screen="today">
+          <div class="summary-grid">
+            <article class="metric primary">
+              <span class="metric-label">Текущая смена</span>
+              <strong>15:42</strong>
+              <span class="metric-note">осталось 4 ч 18 мин</span>
+            </article>
+            <article class="metric">
+              <span class="metric-label">Месяц</span>
+              <strong>126,5 ч</strong>
+              <span class="metric-note">из 168 ч нормы</span>
+            </article>
+          </div>
+
+          <article class="work-card">
+            <div class="card-row">
+              <div>
+                <p class="eyebrow">Сегодня, 26 апреля</p>
+                <h2>Смена 2 линия</h2>
+              </div>
+              <span class="status-pill live">В работе</span>
+            </div>
+            <div class="route-line">
+              <div>
+                <span>Начало</span>
+                <strong>08:00</strong>
+                <small>ТЧ-4</small>
+              </div>
+              <div class="rail"></div>
+              <div>
+                <span>Конец</span>
+                <strong>20:00</strong>
+                <small>Новокосино</small>
+              </div>
+            </div>
+            <div class="progress">
+              <span style="width: 64%"></span>
+            </div>
+            <div class="tag-row">
+              <span>Наставник</span>
+              <span>ТУ</span>
+              <span>Чет</span>
+            </div>
+          </article>
+
+          <div class="action-row">
+            <button class="command primary-command" type="button" data-open-add>Добавить смену</button>
+            <button class="command" type="button" data-jump="norm">Норма</button>
+          </div>
+
+          <section class="section-block">
+            <div class="section-heading">
+              <h2>Ближайшие</h2>
+              <button class="text-button" type="button" data-jump="shifts">Все</button>
+            </div>
+            <div class="shift-list compact" id="upcomingList"></div>
+          </section>
+        </section>
+
+        <section class="screen" data-screen="shifts">
+          <div class="toolbar">
+            <button class="segmented is-active" type="button">Апрель</button>
+            <button class="segmented" type="button">Май</button>
+            <button class="segmented" type="button">Год</button>
+          </div>
+          <div class="shift-list" id="shiftList"></div>
+        </section>
+
+        <section class="screen" data-screen="norm">
+          <article class="work-card">
+            <div class="card-row">
+              <div>
+                <p class="eyebrow">Апрель 2026</p>
+                <h2>Норма месяца</h2>
+              </div>
+              <strong class="money">74%</strong>
+            </div>
+            <div class="norm-ring" aria-label="Выполнено 74%">
+              <span></span>
+            </div>
+            <div class="stats-strip">
+              <div><span>Отработано</span><strong>126,5 ч</strong></div>
+              <div><span>Осталось</span><strong>41,5 ч</strong></div>
+              <div><span>Заработок</span><strong>148 900 ₽</strong></div>
+            </div>
+          </article>
+
+          <section class="section-block">
+            <div class="section-heading">
+              <h2>Разбивка</h2>
+            </div>
+            <div class="breakdown">
+              <div><span>День</span><strong>68,0 ч</strong></div>
+              <div><span>Вечер</span><strong>34,5 ч</strong></div>
+              <div><span>Ночь</span><strong>24,0 ч</strong></div>
+            </div>
+          </section>
+        </section>
+
+        <section class="screen" data-screen="stats">
+          <section class="section-block">
+            <div class="section-heading">
+              <h2>Годовая динамика</h2>
+              <span class="muted">2026</span>
+            </div>
+            <div class="chart" aria-label="График заработка по месяцам">
+              <span style="height: 34%"></span>
+              <span style="height: 52%"></span>
+              <span style="height: 47%"></span>
+              <span style="height: 74%"></span>
+              <span style="height: 62%"></span>
+              <span style="height: 81%"></span>
+              <span style="height: 58%"></span>
+              <span style="height: 69%"></span>
+            </div>
+          </section>
+
+          <div class="summary-grid">
+            <article class="metric">
+              <span class="metric-label">Среднее</span>
+              <strong>151 200 ₽</strong>
+              <span class="metric-note">за месяц</span>
+            </article>
+            <article class="metric">
+              <span class="metric-label">Смен</span>
+              <strong>89</strong>
+              <span class="metric-note">за год</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="screen" data-screen="premium">
+          <article class="premium-panel">
+            <p class="eyebrow">Premium</p>
+            <h2>Расширенная статистика, экспорт и синхронизация</h2>
+            <p>
+              Здесь будет web-подписка без App Store. Статус подписки будет проверяться сервером.
+            </p>
+            <div class="price-row">
+              <strong>299 ₽</strong>
+              <span>в месяц</span>
+            </div>
+            <button class="command primary-command" type="button">Подключить позже</button>
+          </article>
+
+          <div class="feature-list">
+            <div><span></span> Полная история смен</div>
+            <div><span></span> Экспорт CSV/XLSX</div>
+            <div><span></span> Расширенная статистика</div>
+            <div><span></span> Бэкапы и импорт iOS</div>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Основная навигация">
+        <button class="is-active" type="button" data-target="today"><span>⌂</span>Сегодня</button>
+        <button type="button" data-target="shifts"><span>▦</span>Смены</button>
+        <button type="button" data-target="norm"><span>◌</span>Норма</button>
+        <button type="button" data-target="stats"><span>▥</span>Статистика</button>
+        <button type="button" data-target="premium"><span>★</span>Premium</button>
+      </nav>
+    </div>
+
+    <dialog class="shift-dialog" id="addShiftDialog">
+      <form method="dialog" id="shiftForm">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">Новая смена</p>
+            <h2>Быстрое добавление</h2>
+          </div>
+          <button class="icon-button" value="cancel" type="submit" aria-label="Закрыть">×</button>
+        </div>
+        <label>
+          Название
+          <input name="name" value="Смена" autocomplete="off" />
+        </label>
+        <div class="form-grid">
+          <label>
+            Дата
+            <input name="date" type="date" required />
+          </label>
+          <label>
+            Начало
+            <input name="start" type="time" value="08:00" required />
+          </label>
+          <label>
+            Конец
+            <input name="end" type="time" value="20:00" required />
+          </label>
+          <label>
+            Доход
+            <input name="earnings" inputmode="numeric" value="8900" />
+          </label>
+        </div>
+        <div class="dialog-actions">
+          <button class="command" value="cancel" type="submit">Отмена</button>
+          <button class="command primary-command" value="save" type="submit">Сохранить</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
