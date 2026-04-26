@@ -1,4 +1,4 @@
-const cacheName = "metrotime-web-v17";
+const cacheName = "metrotime-web-v18";
 const baseUrl = self.registration.scope;
 const assets = [
   "", "index.html", "styles.css", "app.js", "auth.js", "shifts.js", "firebase-config.js", "manifest.json",
